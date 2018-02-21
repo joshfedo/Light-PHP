@@ -1,5 +1,5 @@
 <?php
-abstract class App{
+abstract class Engine{
 
 	public $settings;
 	public $url;

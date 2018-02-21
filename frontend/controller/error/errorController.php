@@ -1,6 +1,6 @@
 <?php
 
-class errorController extends App{
+class errorController extends Engine{
 
     function missing(){
 

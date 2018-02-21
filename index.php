@@ -2,7 +2,7 @@
 
 //Start
 require('Config.php');
-require(BACK_SYSTEM. 'App.php');
+require(BACK_SYSTEM. 'Engine.php');
 
 //Require
 require(BACK_SYSTEM . 'core/Settings.php');
@@ -21,7 +21,7 @@ require(BACK_SYSTEM . 'core/Error.php');
 //require(BACK_SYSTEM. 'modules/dBug.php');
 //require(BACK_SYSTEM.'modules/Header.php');
 
-//App
+//Engine
 $engine = array();
 $engine['settings'] = new Settings();
 $engine['error'] = new ErrorMangent();
