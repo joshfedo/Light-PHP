@@ -33,13 +33,13 @@ class ErrorManagent{
 		ErrorManagent::$warnings[] = $error_string_html;
 	
 		if($error === "Notice"){
-			error_log( addslashes($error_string_log)."\n", 3, "system/errors/backend-notice.log");
+			error_log( addslashes($error_string_log)."\n", 3, "system/logs/backend-notice.log");
 		}
 		
 		if($error === "Warning" || $error === "Fatal Error" || $error === "Unknown"){
 			
 			ErrorManagent::$errors[] = $error_string_log;
-			error_log( addslashes($error_string_log)."\n", 3, "system/errors/backend-errors.log");
+			error_log( addslashes($error_string_log)."\n", 3, "system/logs/backend-errors.log");
 	
 			if(ErrorManagent::$error_handle !== "developing"){
 				sendEmail($error_string_html);

@@ -1,9 +1,9 @@
 <?php
 
-//Start
+//Config
 require('Config.php');
 
-//Require
+//Engine
 require(BACK_SYSTEM . 'core/Settings.php');
 require(BACK_SYSTEM . 'core/Url.php');
 require(BACK_SYSTEM . 'core/Controller.php');
@@ -15,24 +15,9 @@ require(BACK_SYSTEM . 'core/Util.php');
 require(BACK_SYSTEM . 'core/ErrorManagent.php');
 require(BACK_SYSTEM . 'core/Loader.php');
 
-//Modules
-//require(back_system. modules autoload);
-//require(BACK_SYSTEM. 'modules/console.php');
-//require(BACK_SYSTEM. 'modules/dBug.php');
-//require(BACK_SYSTEM.'modules/Header.php');
+require(BACK_SYSTEM. "Start.php");
 
-require(BACK_SYSTEM. "start.php");
-
-//Engine
-$Settings = new Settings();
-$Error = new ErrorManagent();
-$Url = new Url();
-$Output = new Output();
-$Util = new Util();
-$Connection = new Connection();
 $Controller = new Controller();
-$Header = "Header"; //TODO: Headers before sent some data, compression...
-
 $Controller->exec_function();
 
 Connection::$CONN->close();
