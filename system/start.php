@@ -23,8 +23,8 @@ if(isset($_REQUEST['model']) && !isset($_REQUEST['route'])){
 	Url::$type = 'rest';
 }
 if(!isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
-	Url::$action = 'index/index';
-	Url::$type = 'controller';
+	Url::$action = 'info/info/welcome';
+	Url::$type = 'controller'; //FIXME: Type seo, inside seo check whenther has something or only '/'
 }
 
 //Settings

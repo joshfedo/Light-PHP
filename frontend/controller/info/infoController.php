@@ -10,5 +10,9 @@ class infoController{
 
 	}
 
+	public function welcome(){
+		Output::load(BACK_VIEW.'pags/welcome/welcomeView.php',array());
+	}
+
 	
 }
