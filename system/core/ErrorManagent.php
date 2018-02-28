@@ -1,6 +1,6 @@
 <?php
 
-class ErrorMangent{
+class ErrorManagent{
 
 	public static $warnings = array();
 	public static $errors = array();
@@ -30,7 +30,7 @@ class ErrorMangent{
 		$error_string_html = '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
 		$error_string_log = $error.' - '.$errstr.' - '.$errfile.' - '.$errline;
 		
-		ErrorMangent::$warnings[] = $error_string_html;
+		ErrorManagent::$warnings[] = $error_string_html;
 	
 		if($error === "Notice"){
 			error_log( addslashes($error_string_log)."\n", 3, "system/errors/backend-notice.log");
@@ -38,10 +38,10 @@ class ErrorMangent{
 		
 		if($error === "Warning" || $error === "Fatal Error" || $error === "Unknown"){
 			
-			ErrorMangent::$errors[] = $error_string_log;
+			ErrorManagent::$errors[] = $error_string_log;
 			error_log( addslashes($error_string_log)."\n", 3, "system/errors/backend-errors.log");
 	
-			if(ErrorMangent::$error_handle !== "developing"){
+			if(ErrorManagent::$error_handle !== "developing"){
 				sendEmail($error_string_html);
 			}
 		}
@@ -53,7 +53,7 @@ class ErrorMangent{
 	}
 
 	public static function test(){
-		return 10;
+		return 10/0;
 	}
 	
 	public static function sendEmail($message){

@@ -51,6 +51,10 @@ Settings::set("image_cache_size_big", "***");
 Settings::set('cache_version', '0.01');
 
 //Error
-ErrorMangent::$error_handle = 'developing';
-set_error_handler( array(new ErrorMangent(),"my_error_handler") ,E_ALL);
+ErrorManagent::$error_handle = 'developing';
+set_error_handler( array(new ErrorManagent(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
+
+//Loader
+Loader::$scripts = array();
+Loader::$styles = array();

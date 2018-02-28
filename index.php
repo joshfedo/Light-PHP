@@ -12,7 +12,8 @@ require(BACK_SYSTEM . 'core/Controller.php');
 require(BACK_SYSTEM . "core/Output.php");
 require(BACK_SYSTEM . 'core/Connection.php');
 require(BACK_SYSTEM . 'core/Util.php');
-require(BACK_SYSTEM . 'core/Error.php');
+require(BACK_SYSTEM . 'core/ErrorManagent.php');
+require(BACK_SYSTEM . 'core/Loader.php');
 
 //Modules
 //require(back_system. modules autoload);
@@ -24,7 +25,7 @@ require(BACK_SYSTEM. "start.php");
 
 //Engine
 $Settings = new Settings();
-$Error = new ErrorMangent();
+$Error = new ErrorManagent();
 $Url = new Url();
 $Output = new Output();
 $Util = new Util();

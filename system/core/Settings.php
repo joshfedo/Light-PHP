@@ -1,17 +1,18 @@
 <?php
 class Settings{
 
-	private static $settings;
+	static $data;
 	
-	public static function get($key){
-		if(isset(Settings::$settings[$key])){
-			return Settings::$settings[$key];
+	public static function Set($key, $value =""){
+		Settings::$data[$key] = $value;
+	}
+
+	public static function Get($key){
+
+		if(isset(Settings::$data[$key])){
+			return Settings::$data[$key];
 		}else{
 			return null;
 		}
-	}
-
-	public static function set($key, $value =""){
-		Settings::$settings[$key] = $value;
 	}
 }

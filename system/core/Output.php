@@ -2,7 +2,7 @@
 
 class Output{
 
-    public static function load($route, $data = array()){
+    public static function Load($route, $data = array()){
 
 		//TODO: Headers ??
 		//TODO: Gzip ??
@@ -10,19 +10,19 @@ class Output{
         ob_start();
         extract($data);
 		
-        require(BACK_VIEW.'common/header.php');
+        require(BACK_VIEW.'common/Header.php');
         require($route);
-        require(BACK_VIEW.'common/footer.php');
+        require(BACK_VIEW.'common/Footer.php');
 		
 		ob_end_flush();
 	}
 
-    public function gzipLoad($route,$data){
+    public function gZipLoad($route,$data){
     }
 
 	//TODO: Merge rawload and restLoad??
 
-    public function rawload($route,$data = array()){
+    public function rawLoad($route,$data = array()){
         //Load with no JS/CSS/Template
 	}
 
