@@ -9,15 +9,16 @@
     <title>Light PHP</title>
 
     <?php
-        $cache_version = $GLOBALS['engine']['settings']->get("cache_version");
+		//$cache_version = $GLOBALS['engine']['settings']->get("cache_version");
+		$cache_version = '0.01';
     ?>
 
     <!--CSS -->
-    <link href="view/boot/<?=$cache_version?>/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
+    <link href="frontend/view/boot/<?=$cache_version?>/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
 
 	<!-- JS -->
-	<script src="view/boot/<?=$cache_version?>/node_modules/materialize-css/dist/css/materialize.min.js"></script> 
-	<script src="view/boot/<?=$cache_version?>/node_modules/jquery/dist/jquery.min.js"></script> 
+	<script src="frontend/view/boot/<?=$cache_version?>/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="frontend/view/boot/<?=$cache_version?>/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
 
     <!-- Custom styles -->
     <?php

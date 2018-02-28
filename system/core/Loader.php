@@ -1,7 +1,7 @@
 <?php
 class Loader{
 
-	public function load_template($route, $data){
+	public static function load_template($route, $data){
 
         extract($data);
 
@@ -16,7 +16,7 @@ class Loader{
         return $output;
 	}
 	
-	public function load_file($route){
+	public static function load_file($route){
         ob_start();
         
         require($route);

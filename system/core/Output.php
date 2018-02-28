@@ -2,7 +2,7 @@
 
 class Output{
 
-    public function load($route, $data = array()){
+    public static function load($route, $data = array()){
 
 		//TODO: Headers ??
 		//TODO: Gzip ??

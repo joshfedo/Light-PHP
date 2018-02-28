@@ -2,19 +2,12 @@
 
 class ErrorMangent{
 
-	public $warnings = array();
-	public $errors = array();
-	private $error_handle;
-	private $enviroment;
-	
-	function __construct(){
+	public static $warnings = array();
+	public static $errors = array();
+	public static $error_handle;
+	public static $enviroment;
 
-		$this->error_handle = 'developing';
-		set_error_handler( array($this,"my_error_handler") ,E_ALL);
-		error_reporting(E_ALL);
-	}
-
-	function my_error_handler($errno, $errstr, $errfile, $errline) {
+	public static function my_error_handler($errno, $errstr, $errfile, $errline) {
     
 		switch ($errno) {
 			case E_NOTICE:
@@ -37,7 +30,7 @@ class ErrorMangent{
 		$error_string_html = '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
 		$error_string_log = $error.' - '.$errstr.' - '.$errfile.' - '.$errline;
 		
-		$this->warnings[] = $error_string_html;
+		ErrorMangent::$warnings[] = $error_string_html;
 	
 		if($error === "Notice"){
 			error_log( addslashes($error_string_log)."\n", 3, "system/errors/backend-notice.log");
@@ -45,10 +38,10 @@ class ErrorMangent{
 		
 		if($error === "Warning" || $error === "Fatal Error" || $error === "Unknown"){
 			
-			$this->errors[] = $error_string_log;
+			ErrorMangent::$errors[] = $error_string_log;
 			error_log( addslashes($error_string_log)."\n", 3, "system/errors/backend-errors.log");
 	
-			if($this->error_handle !== "developing"){
+			if(ErrorMangent::$error_handle !== "developing"){
 				sendEmail($error_string_html);
 			}
 		}
@@ -59,11 +52,11 @@ class ErrorMangent{
 		return true;
 	}
 
-	function test(){
+	public static function test(){
 		return 10;
 	}
 	
-	function sendEmail($message){
+	public static function sendEmail($message){
 	
 		require_once(BACK_SYSTEM.'modules/Mail/PHPMailerAutoload.php');
 		

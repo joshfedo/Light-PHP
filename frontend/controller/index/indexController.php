@@ -1,5 +1,5 @@
 <?php
-class indexController extends Engine{
+class indexController{
 
 	public function index(){	
 		$this->output->load(BACK_VIEW.'pags/welcome/welcomeView.php',array());

@@ -40,8 +40,6 @@ class Controller{
 
 	public function exec_function(){
 
-		$engine = $GLOBALS['engine'];
-
 		//File
 		if (!file_exists($this->file)) {
 			$this->file = BACK_CONTROLLER . 'error/errorController.php';
@@ -58,7 +56,7 @@ class Controller{
 		}
 
 		//Action
-		$controller_class = new $this->class($engine);
+		$controller_class = new $this->class();
 		$method = $this->method;
 		$controller_class->$method();
 	}

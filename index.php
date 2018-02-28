@@ -2,7 +2,6 @@
 
 //Start
 require('Config.php');
-require(BACK_SYSTEM. 'Engine.php');
 
 //Require
 require(BACK_SYSTEM . 'core/Settings.php');
@@ -21,17 +20,18 @@ require(BACK_SYSTEM . 'core/Error.php');
 //require(BACK_SYSTEM. 'modules/dBug.php');
 //require(BACK_SYSTEM.'modules/Header.php');
 
+require(BACK_SYSTEM. "start.php");
+
 //Engine
-$engine = array();
-$engine['settings'] = new Settings();
-$engine['error'] = new ErrorMangent();
-$engine['url'] = new Url();
-$engine['output'] = new Output();
-$engine['util'] = new Util();
-$engine['connection'] = new Connection();
-$engine['controller'] = new Controller();
-$engine['header'] = "Header"; //TODO: Headers before sent some data, compression...
+$Settings = new Settings();
+$Error = new ErrorMangent();
+$Url = new Url();
+$Output = new Output();
+$Util = new Util();
+$Connection = new Connection();
+$Controller = new Controller();
+$Header = "Header"; //TODO: Headers before sent some data, compression...
 
-$engine['controller']->exec_function();
+$Controller->exec_function();
 
-$engine['connection']->CONN->close();
+Connection::$CONN->close();
